@@ -9,3 +9,5 @@ class WeatherReportSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+
+

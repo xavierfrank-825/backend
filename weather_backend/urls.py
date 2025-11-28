@@ -20,7 +20,12 @@ from reports.views import WeatherReportListCreate, WeatherReportRetrieveUpdateDe
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # API endpoints
     path('api/reports/', WeatherReportListCreate.as_view(), name='reports'),
     path('api/reports/<int:pk>/', WeatherReportRetrieveUpdateDestroy.as_view(), name='report-detail'),
     path('api/health/', health, name='health'),
+    # Backwards-compatible aliases (without /api prefix)
+    path('reports/', WeatherReportListCreate.as_view(), name='reports-legacy'),
+    path('reports/<int:pk>/', WeatherReportRetrieveUpdateDestroy.as_view(), name='report-detail-legacy'),
+    path('health/', health, name='health-legacy'),
 ]
